@@ -16,9 +16,6 @@ class ShootController extends GetxController {
     isAnimating.value = true;
     isBallVisible.value = true;
 
-    // Reset ball position to behind Shoot button
-    ballOffsetY.value = -10.0;
-
     // Start animation sequence
     animationController.reset();
     animationController.forward().then((_) {
@@ -34,7 +31,7 @@ class ShootController extends GetxController {
     _seconds = 30 * 60; // Reset to 30 minutes
     updateTime();
 
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_seconds > 0) {
         _seconds--;
         updateTime();
